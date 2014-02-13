@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "ar-drone": "0.x.x",
-    "voxel-engine": "0.x.x"
+    "voxel-drone": "0.2.1"
   },
   "devDependencies": {
     "chit": "0.x.x"
