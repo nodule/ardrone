@@ -16,7 +16,8 @@
     "test": "chit -r"
   },
   "dependencies": {
-    "ar-drone": "0.x.x"
+    "ar-drone": "0.x.x",
+    "voxel-engine": "0.x.x"
   },
   "devDependencies": {
     "chit": "0.x.x"

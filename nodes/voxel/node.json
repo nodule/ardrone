@@ -1,0 +1,26 @@
+{
+  "name": "voxel",
+  "ns": "ardrone",
+  "description": "Creates a virtual drone to use in voxeljs",
+  "phrases": {
+    "active": "Creating virtual drone"
+  },
+  "require": {
+    "voxel-drone": "0.x.x"
+  },
+  "ports": {
+    "input": {
+      "game": {
+        "title": "Game",
+        "type": "object"
+      }
+    },
+    "output": {
+      "client": {
+        "title": "Client",
+        "type": "Client",
+        "required": true
+      }
+    }
+  }
+}
