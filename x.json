@@ -1,0 +1,490 @@
+{
+  "name": "instagram",
+  "description": "Parrot AR Ardrone for Chiχ",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/ardrone.git"
+  },
+  "dependencies": {
+    "ar-drone": "0.x.x"
+  },
+  "nodes": [
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "duration": {
+            "title": "Duration",
+            "type": "number",
+            "default": 1000
+          },
+          "animation": {
+            "title": "Animation",
+            "type": "string",
+            "enum": [
+              "phiM30Deg",
+              "phi30Deg",
+              "thetaM30Deg",
+              "theta30Deg",
+              "theta20degYaw200deg",
+              "theta20degYawM200deg",
+              "turnaround",
+              "turnaroundGodown",
+              "yawShake",
+              "yawDance",
+              "phiDance",
+              "thetaDance",
+              "vzDance",
+              "wave",
+              "phiThetaMixed",
+              "doublePhiThetaMixed",
+              "flipAhead",
+              "flipBehind",
+              "flipLeft",
+              "flipRight"
+            ]
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Performing animation {{input.animation}}"
+      },
+      "description": "Performs a pre-programmed flight sequence for a given duration (in ms)",
+      "ns": "ardrone",
+      "name": "animate",
+      "fn": "input.client.animate(input.animation, input.duration);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "hz": {
+            "title": "Frequency",
+            "type": "number",
+            "default": 5
+          },
+          "duration": {
+            "title": "Duration",
+            "type": "number",
+            "default": 2
+          },
+          "animation": {
+            "title": "Animation",
+            "type": "string",
+            "enum": [
+              "blinkGreenRed",
+              "blinkGreen",
+              "blinkRed",
+              "blinkOrange",
+              "snakeGreenRed",
+              "fire",
+              "standard",
+              "red",
+              "green",
+              "redSnake",
+              "blank",
+              "rightMissile",
+              "leftMissile",
+              "doubleMissile",
+              "frontLeftGreenOthersRed",
+              "frontRightGreenOthersRed",
+              "rearRightGreenOthersRed",
+              "rearLeftGreenOthersRed",
+              "leftGreenRightRed",
+              "leftRedRightGreen",
+              "blinkStandard"
+            ]
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Animation led sequence {{input.sequence}}"
+      },
+      "description": "Performs a pre-programmed led sequence at given hz frequency and duration (in sec!)",
+      "ns": "ardrone",
+      "name": "animateLeds",
+      "fn": "input.client.animateLeds(input.animation, input.hz, input.duration);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client"
+          }
+        },
+        "output": {
+          "landed": {
+            "title": "Landed",
+            "type": "any"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Landing..."
+      },
+      "description": "Lands the drone",
+      "ns": "ardrone",
+      "name": "land",
+      "fn": "output = function(cb) {\n\n  ar_drone.land(function() {\n\n    cb({ landed: 'landed' });\n    done();\n\n  });\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Back pitching"
+      },
+      "description": "Controls the pitch, which a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
+      "ns": "ardrone",
+      "name": "back",
+      "fn": "input.client.back(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "device": {
+            "title": "Device",
+            "type": "number",
+            "default": 0
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Calibrating device {{input.device}}.."
+      },
+      "description": "Asks the drone to calibrate a device. Currently the AR.Drone firmware supports only one device that can be calibrated: the magnetometer, which is device number 0.  The magnetometer can only be calibrated while the drone is flying, and the calibration routine causes the drone to yaw in place a full 360 degrees.",
+      "ns": "ardrone",
+      "name": "calibrate",
+      "fn": "input.client.calibrate(input.device);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Spinning clockwise"
+      },
+      "description": "Spins the drone clockwise",
+      "ns": "ardrone",
+      "name": "clockwise",
+      "fn": "input.client.clockwise(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "config": {
+            "title": "Config",
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "title": "Key"
+              },
+              "value": {
+                "type": "string",
+                "title": "Value"
+              },
+              "timeout": {
+                "type": "number",
+                "title": "Timeout",
+                "description": "The time, in milliseconds, to wait for an ACK from the drone.",
+                "default": 1000
+              }
+            }
+          }
+        },
+        "output": {
+          "out": {
+            "type": "any",
+            "title": "Out"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adjusting config set {{input.config.key}} to {{input.config.value}}"
+      },
+      "description": "Sends a config command to the drone. ",
+      "ns": "ardrone",
+      "name": "config",
+      "fn": "output = function(cb) {\n\n  input.client.config(input.options, function(dat) {\n\n    cb({ out: dat });\n    done();\n\n  });\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Spinning counter clockwise"
+      },
+      "description": "Spins the drone counter clockwise",
+      "ns": "ardrone",
+      "name": "counterClockwise",
+      "fn": "input.client.counterClockwise(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Disabling Emergency"
+      },
+      "description": "Causes the emergency REF bit to be set to 1 until navdata.droneState.emergencyLanding is 0. This recovers a drone that has flipped over and is showing red lights to be flyable again and show green lights. It is also done implicitly when creating a new high level client.",
+      "ns": "ardrone",
+      "name": "disableEmergency",
+      "fn": "input.client.disableEmergency();\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Moving down"
+      },
+      "description": "Moves the drone down",
+      "ns": "ardrone",
+      "name": "down",
+      "fn": "input.client.down(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Front pitching"
+      },
+      "description": "Controls the pitch, which a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
+      "ns": "ardrone",
+      "name": "front",
+      "fn": "input.client.front(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          }
+        },
+        "output": {
+          "hovering": {
+            "title": "Hovering",
+            "type": "any"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Ardrone taking off"
+      },
+      "description": "Ardrone takeoff",
+      "ns": "ardrone",
+      "name": "takeoff",
+      "fn": "output = function(cb) {\n\n  input.client.takeoff(function() {\n   cb({ hovering: 'Hovering' });\n  });\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Rolling left"
+      },
+      "description": "Controls the roll, which is a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
+      "ns": "ardrone",
+      "name": "left",
+      "fn": "input.client.left(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Rolling right"
+      },
+      "description": "Controls the roll, which is a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
+      "ns": "ardrone",
+      "name": "right",
+      "fn": "input.client.right(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Stopping.."
+      },
+      "description": "Sets all drone movement commands to 0, making it effectively hover in place.",
+      "ns": "ardrone",
+      "name": "stop",
+      "fn": "input.client.stop();\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          }
+        },
+        "output": {
+          "hovering": {
+            "title": "Hovering",
+            "type": "any"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Ardrone taking off"
+      },
+      "description": "Ardrone takeoff",
+      "ns": "ardrone",
+      "name": "takeoff",
+      "fn": "output = function(cb) {\n\n  input.client.takeoff(function() {\n   cb({ hovering: 'Hovering' });\n   done();\n  });\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          },
+          "speed": {
+            "title": "Speed",
+            "type": "float",
+            "default": 0.1
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Moving up"
+      },
+      "description": "Moves the drone upward",
+      "ns": "ardrone",
+      "name": "up",
+      "fn": "input.client.up(input.speed);\n"
+    }
+  ],
+  "twigs": []
+}

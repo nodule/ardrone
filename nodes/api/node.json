@@ -1,0 +1,22 @@
+{
+  "name": "land",
+  "ns": "ardrone",
+  "description": "Lands the drone",
+  "phrases": {
+    "active": "Landing..."
+  },
+  "ports": {
+    "input": {
+      "client": {
+        "title": "Client",
+        "type": "Client"
+      }
+    },
+    "output": {
+      "landed": {
+        "title": "Landed",
+        "type": "any"
+      }
+    }
+  }
+}

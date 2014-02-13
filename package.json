@@ -1,0 +1,28 @@
+{
+  "name": "nodule-ardrone",
+  "description": "Parrot AR Ardrone for Chiχ",
+  "author": "Rob Halff <rob.halff@gmail.com>",
+  "version": "0.0.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/ardrone.git"
+  },
+  "engines": {
+    "node": ">=0.6.0"
+  },
+  "main": "x",
+  "scripts": {
+    "test": "chit -r"
+  },
+  "dependencies": {
+    "ar-drone": "0.x.x"
+  },
+  "devDependencies": {
+    "chit": "0.x.x"
+  },
+  "chix": {
+    "name": "instagram",
+    "color": "rgb(136,0,35)"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "stop",
+  "ns": "ardrone",
+  "description": "Sets all drone movement commands to 0, making it effectively hover in place.",
+  "phrases": {
+    "active": "Stopping.."
+  },
+  "ports": {
+    "input": {
+      "client": {
+        "title": "Client",
+        "type": "Client",
+        "required": true
+      }
+    },
+    "output": {
+    }
+  }
+}
