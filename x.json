@@ -1,5 +1,5 @@
 {
-  "name": "instagram",
+  "name": "ardrone",
   "description": "Parrot AR Ardrone for Chiχ",
   "version": "0.0.2",
   "repository": {
@@ -7,7 +7,8 @@
     "url": "https://github.com/nodule/ardrone.git"
   },
   "dependencies": {
-    "ar-drone": "0.x.x"
+    "ar-drone": "0.x.x",
+    "voxel-drone": "0.2.1"
   },
   "nodes": [
     {
@@ -484,6 +485,33 @@
       "ns": "ardrone",
       "name": "up",
       "fn": "input.client.up(input.speed);\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "game": {
+            "title": "Game",
+            "type": "object"
+          }
+        },
+        "output": {
+          "client": {
+            "title": "Client",
+            "type": "Client",
+            "required": true
+          }
+        }
+      },
+      "require": {
+        "voxel-drone": "0.x.x"
+      },
+      "phrases": {
+        "active": "Creating virtual drone"
+      },
+      "description": "Creates a virtual drone to use in voxeljs",
+      "ns": "ardrone",
+      "name": "voxel",
+      "fn": "output.client = voxel_drone(input.game)\n"
     }
   ],
   "twigs": []
