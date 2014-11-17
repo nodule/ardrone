@@ -25,10 +25,31 @@
       "animation": {
         "title": "Animation",
         "type": "string",
-        "enum": ["blinkGreenRed", "blinkGreen", "blinkRed", "blinkOrange", "snakeGreenRed", "fire", "standard", "red", "green", "redSnake", "blank", "rightMissile", "leftMissile", "doubleMissile", "frontLeftGreenOthersRed", "frontRightGreenOthersRed", "rearRightGreenOthersRed", "rearLeftGreenOthersRed", "leftGreenRightRed", "leftRedRightGreen", "blinkStandard"]
+        "enum": [
+          "blinkGreenRed",
+          "blinkGreen",
+          "blinkRed",
+          "blinkOrange",
+          "snakeGreenRed",
+          "fire",
+          "standard",
+          "red",
+          "green",
+          "redSnake",
+          "blank",
+          "rightMissile",
+          "leftMissile",
+          "doubleMissile",
+          "frontLeftGreenOthersRed",
+          "frontRightGreenOthersRed",
+          "rearRightGreenOthersRed",
+          "rearLeftGreenOthersRed",
+          "leftGreenRightRed",
+          "leftRedRightGreen",
+          "blinkStandard"
+        ]
       }
     },
-    "output": {
-    }
+    "output": {}
   }
 }

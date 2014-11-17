@@ -20,10 +20,30 @@
       "animation": {
         "title": "Animation",
         "type": "string",
-        "enum": ["phiM30Deg", "phi30Deg", "thetaM30Deg", "theta30Deg", "theta20degYaw200deg", "theta20degYawM200deg", "turnaround", "turnaroundGodown", "yawShake", "yawDance", "phiDance", "thetaDance", "vzDance", "wave", "phiThetaMixed", "doublePhiThetaMixed", "flipAhead", "flipBehind", "flipLeft", "flipRight"]
+        "enum": [
+          "phiM30Deg",
+          "phi30Deg",
+          "thetaM30Deg",
+          "theta30Deg",
+          "theta20degYaw200deg",
+          "theta20degYawM200deg",
+          "turnaround",
+          "turnaroundGodown",
+          "yawShake",
+          "yawDance",
+          "phiDance",
+          "thetaDance",
+          "vzDance",
+          "wave",
+          "phiThetaMixed",
+          "doublePhiThetaMixed",
+          "flipAhead",
+          "flipBehind",
+          "flipLeft",
+          "flipRight"
+        ]
       }
     },
-    "output": {
-    }
+    "output": {}
   }
 }

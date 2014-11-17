@@ -5,9 +5,6 @@
   "phrases": {
     "active": "Creating virtual drone"
   },
-  "require": {
-    "voxel-drone": "0.x.x"
-  },
   "ports": {
     "input": {
       "game": {
@@ -21,6 +18,11 @@
         "type": "Client",
         "required": true
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "voxel-drone": "0.x.x"
     }
   }
 }

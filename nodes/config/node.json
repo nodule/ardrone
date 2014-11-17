@@ -19,17 +19,17 @@
           "key": {
             "type": "string",
             "title": "Key"
-           },
-           "value": {
+          },
+          "value": {
             "type": "string",
             "title": "Value"
-           },
-           "timeout": {
+          },
+          "timeout": {
             "type": "number",
             "title": "Timeout",
             "description": "The time, in milliseconds, to wait for an ACK from the drone.",
             "default": 1000
-           }
+          }
         }
       }
     },

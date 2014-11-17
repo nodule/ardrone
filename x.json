@@ -487,6 +487,11 @@
       "fn": "input.client.up(input.speed);\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "voxel-drone": "0.x.x"
+        }
+      },
       "ports": {
         "input": {
           "game": {
@@ -501,9 +506,6 @@
             "required": true
           }
         }
-      },
-      "require": {
-        "voxel-drone": "0.x.x"
       },
       "phrases": {
         "active": "Creating virtual drone"
