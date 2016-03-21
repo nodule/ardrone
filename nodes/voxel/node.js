@@ -1,1 +1,1 @@
-output.client = voxel_drone($.game)
+output.client = $.create(voxel_drone($.game))
