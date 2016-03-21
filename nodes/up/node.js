@@ -1,1 +1,1 @@
-input.client.up(input.speed);
+$.client.up($.speed);

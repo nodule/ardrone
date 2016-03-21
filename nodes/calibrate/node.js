@@ -1,1 +1,1 @@
-input.client.calibrate(input.device);
+$.client.calibrate($.device);

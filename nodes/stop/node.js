@@ -1,1 +1,1 @@
-input.client.stop();
+$.client.stop();

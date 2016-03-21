@@ -1,1 +1,1 @@
-input.client.animate(input.animation, input.duration);
+$.client.animate($.animation, $.duration);

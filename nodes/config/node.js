@@ -1,6 +1,6 @@
 output = function(cb) {
 
-  input.client.config(input.options, function(dat) {
+  $.client.config($.options, function(dat) {
 
     cb({ out: dat });
     done();

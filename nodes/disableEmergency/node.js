@@ -1,1 +1,1 @@
-input.client.disableEmergency();
+$.client.disableEmergency();

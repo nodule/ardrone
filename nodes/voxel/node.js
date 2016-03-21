@@ -1,1 +1,1 @@
-output.client = voxel_drone(input.game)
+output.client = voxel_drone($.game)

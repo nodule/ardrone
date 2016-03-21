@@ -1,1 +1,1 @@
-input.client.clockwise(input.speed);
+$.client.clockwise($.speed);

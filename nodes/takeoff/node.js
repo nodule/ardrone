@@ -1,6 +1,6 @@
 output = function(cb) {
 
-  input.client.takeoff(function() {
+  $.client.takeoff(function() {
    cb({ hovering: 'Hovering' });
    done();
   });
