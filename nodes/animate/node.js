@@ -1,1 +1,4 @@
-$.client.animate($.animation, $.duration);
+output = function() {
+  $.client.animate($.animation, $.duration);
+  done()
+}

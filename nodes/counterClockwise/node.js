@@ -1,1 +1,3 @@
-$.client.counterClockwise($.speed);
+output = function() {
+  $.client.counterClockwise($.speed);
+}

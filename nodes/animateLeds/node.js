@@ -1,1 +1,4 @@
-$.client.animateLeds($.animation, $.hz, $.duration);
+output = function() {
+  $.client.animateLeds($.animation, $.hz, $.duration);
+  done()
+}

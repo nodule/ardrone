@@ -1,1 +1,3 @@
-$.client.down($.speed);
+output = function() {
+  $.client.down($.speed);
+}

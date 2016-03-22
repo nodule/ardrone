@@ -1,1 +1,3 @@
-$.client.up($.speed);
+output = function() {
+  $.client.up($.speed);
+}

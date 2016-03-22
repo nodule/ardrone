@@ -1,1 +1,3 @@
-$.client.stop();
+output = function() {
+  $.client.stop();
+}

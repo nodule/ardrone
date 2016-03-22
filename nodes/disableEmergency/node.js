@@ -1,1 +1,3 @@
-$.client.disableEmergency();
+output = function() {
+  $.client.disableEmergency();
+}

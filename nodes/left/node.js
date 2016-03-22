@@ -1,1 +1,3 @@
-$.client.left($.speed);
+output = function() {
+  $.client.left($.speed);
+}

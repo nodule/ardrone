@@ -59,7 +59,7 @@
       "description": "Performs a pre-programmed flight sequence for a given duration (in ms)",
       "ns": "ardrone",
       "name": "animate",
-      "fn": "input.client.animate(input.animation, input.duration);\n"
+      "fn": "output = function() {\n  $.client.animate($.animation, $.duration);\n  done()\n}\n"
     },
     {
       "ports": {
@@ -115,7 +115,7 @@
       "description": "Performs a pre-programmed led sequence at given hz frequency and duration (in sec!)",
       "ns": "ardrone",
       "name": "animateLeds",
-      "fn": "input.client.animateLeds(input.animation, input.hz, input.duration);\n"
+      "fn": "output = function() {\n  $.client.animateLeds($.animation, $.hz, $.duration);\n  done()\n}\n"
     },
     {
       "ports": {
@@ -138,7 +138,7 @@
       "description": "Lands the drone",
       "ns": "ardrone",
       "name": "land",
-      "fn": "output = function(cb) {\n\n  ar_drone.land(function() {\n\n    cb({ landed: 'landed' });\n    done();\n\n  });\n\n};\n"
+      "fn": "output = function(cb) {\n  ar_drone.land(function() {\n    cb({ landed: $.create('landed') });\n    done();\n  });\n};\n"
     },
     {
       "ports": {
@@ -162,7 +162,7 @@
       "description": "Controls the pitch, which a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
       "ns": "ardrone",
       "name": "back",
-      "fn": "input.client.back(input.speed);\n"
+      "fn": "output = function() {\n  $.client.back($.speed);\n}\n"
     },
     {
       "ports": {
@@ -186,7 +186,7 @@
       "description": "Asks the drone to calibrate a device. Currently the AR.Drone firmware supports only one device that can be calibrated: the magnetometer, which is device number 0.  The magnetometer can only be calibrated while the drone is flying, and the calibration routine causes the drone to yaw in place a full 360 degrees.",
       "ns": "ardrone",
       "name": "calibrate",
-      "fn": "input.client.calibrate(input.device);\n"
+      "fn": "output = function() {\n  $.client.calibrate($.device);\n}\n"
     },
     {
       "ports": {
@@ -210,7 +210,7 @@
       "description": "Spins the drone clockwise",
       "ns": "ardrone",
       "name": "clockwise",
-      "fn": "input.client.clockwise(input.speed);\n"
+      "fn": "output = function() {\n  $.client.clockwise($.speed);\n}\n"
     },
     {
       "ports": {
@@ -254,7 +254,7 @@
       "description": "Sends a config command to the drone. ",
       "ns": "ardrone",
       "name": "config",
-      "fn": "output = function(cb) {\n\n  input.client.config(input.options, function(dat) {\n\n    cb({ out: dat });\n    done();\n\n  });\n\n};\n"
+      "fn": "output = function(cb) {\n  $.client.config($.options, function(dat) {\n    cb({ out: $.create(dat) });\n    done();\n  });\n};\n"
     },
     {
       "ports": {
@@ -278,7 +278,7 @@
       "description": "Spins the drone counter clockwise",
       "ns": "ardrone",
       "name": "counterClockwise",
-      "fn": "input.client.counterClockwise(input.speed);\n"
+      "fn": "output = function() {\n  $.client.counterClockwise($.speed);\n}\n"
     },
     {
       "ports": {
@@ -297,7 +297,7 @@
       "description": "Causes the emergency REF bit to be set to 1 until navdata.droneState.emergencyLanding is 0. This recovers a drone that has flipped over and is showing red lights to be flyable again and show green lights. It is also done implicitly when creating a new high level client.",
       "ns": "ardrone",
       "name": "disableEmergency",
-      "fn": "input.client.disableEmergency();\n"
+      "fn": "output = function() {\n  $.client.disableEmergency();\n}\n"
     },
     {
       "ports": {
@@ -321,7 +321,7 @@
       "description": "Moves the drone down",
       "ns": "ardrone",
       "name": "down",
-      "fn": "input.client.down(input.speed);\n"
+      "fn": "output = function() {\n  $.client.down($.speed);\n}\n"
     },
     {
       "ports": {
@@ -345,7 +345,7 @@
       "description": "Controls the pitch, which a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
       "ns": "ardrone",
       "name": "front",
-      "fn": "input.client.front(input.speed);\n"
+      "fn": "output = function() {\n  $.client.front($.speed);\n}\n"
     },
     {
       "ports": {
@@ -369,7 +369,7 @@
       "description": "Ardrone takeoff",
       "ns": "ardrone",
       "name": "takeoff",
-      "fn": "output = function(cb) {\n\n  input.client.takeoff(function() {\n   cb({ hovering: 'Hovering' });\n  });\n\n};\n"
+      "fn": "output = function(cb) {\n  $.client.takeoff(function() {\n   cb({ hovering: $.create('Hovering') });\n  });\n};\n"
     },
     {
       "ports": {
@@ -393,7 +393,7 @@
       "description": "Controls the roll, which is a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
       "ns": "ardrone",
       "name": "left",
-      "fn": "input.client.left(input.speed);\n"
+      "fn": "output = function() {\n  $.client.left($.speed);\n}\n"
     },
     {
       "ports": {
@@ -417,7 +417,7 @@
       "description": "Controls the roll, which is a horizontal movement using the camera as a reference point. speed can be a value from 0 to 1.",
       "ns": "ardrone",
       "name": "right",
-      "fn": "input.client.right(input.speed);\n"
+      "fn": "output = function() {\n  $.client.right($.speed);\n}\n"
     },
     {
       "ports": {
@@ -436,7 +436,7 @@
       "description": "Sets all drone movement commands to 0, making it effectively hover in place.",
       "ns": "ardrone",
       "name": "stop",
-      "fn": "input.client.stop();\n"
+      "fn": "output = function() {\n  $.client.stop();\n}\n"
     },
     {
       "ports": {
@@ -460,7 +460,7 @@
       "description": "Ardrone takeoff",
       "ns": "ardrone",
       "name": "takeoff",
-      "fn": "output = function(cb) {\n\n  input.client.takeoff(function() {\n   cb({ hovering: 'Hovering' });\n   done();\n  });\n\n};\n"
+      "fn": "output = function(cb) {\n  $.client.takeoff(function() {\n   cb({ hovering: $.create('Hovering') });\n   done();\n  });\n};\n"
     },
     {
       "ports": {
@@ -484,7 +484,7 @@
       "description": "Moves the drone upward",
       "ns": "ardrone",
       "name": "up",
-      "fn": "input.client.up(input.speed);\n"
+      "fn": "output = function() {\n  $.client.up($.speed);\n}\n"
     },
     {
       "dependencies": {
@@ -513,7 +513,7 @@
       "description": "Creates a virtual drone to use in voxeljs",
       "ns": "ardrone",
       "name": "voxel",
-      "fn": "output.client = voxel_drone(input.game)\n"
+      "fn": "output.client = $.create(voxel_drone($.game))\n"
     }
   ],
   "twigs": []

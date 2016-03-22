@@ -1,1 +1,3 @@
-$.client.calibrate($.device);
+output = function() {
+  $.client.calibrate($.device);
+}
